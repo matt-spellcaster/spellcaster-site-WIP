@@ -25,7 +25,7 @@ public: it has to read well, and nothing private goes in (rule 7), whatever the 
    only relaxation is `style-src-attr 'unsafe-inline'`. `tests/unit/repo-rules.test.ts`
    and `tests/dist/` enforce this.
 4. **Design.** Follow `docs/design.md` (the M2 gate, revised for "Editorial, with sky"):
-   dark only on a warm black, Newsreader for what's read and Inter for the UI, accent
+   dark only on a warm black, Inter for what's read and IBM Plex Mono for the UI, accent
    `#8ab4f8`. Frosted glass only on the header and the mobile menu, never on content, with
    opaque fallbacks. The sky is drawn with gradients only, never a large blur (one crashed
    WebKit). New colours go in `@theme` in `src/styles/global.css`, where the contrast test

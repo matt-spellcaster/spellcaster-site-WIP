@@ -18,24 +18,9 @@ export default defineConfig({
   build: { format: 'directory' },
   integrations: [mdx(), react(), sitemap()],
   // Self-hosted from pinned npm packages (no font CDN, so no CSP exception). Latin only.
-  // Newsreader is the reading face, in its variable-weight cut (58 KB; the cut with the
-  // optical-size axis as well is 132 KB, on the critical path of every page). Inter is the UI face.
+  // Inter is the primary face, for what's read. IBM Plex Mono is the secondary, for the UI and
+  // code; it has no variable cut, so it ships the two weights the site uses.
   fonts: [
-    {
-      provider: fontProviders.local(),
-      name: 'Newsreader',
-      cssVariable: '--font-newsreader',
-      fallbacks: ['Georgia', 'Times New Roman', 'serif'],
-      options: {
-        variants: [
-          {
-            src: ['@fontsource-variable/newsreader/files/newsreader-latin-wght-normal.woff2'],
-            weight: '200 800',
-            style: 'normal',
-          },
-        ],
-      },
-    },
     {
       provider: fontProviders.local(),
       name: 'Inter',
@@ -46,6 +31,26 @@ export default defineConfig({
           {
             src: ['@fontsource-variable/inter/files/inter-latin-wght-normal.woff2'],
             weight: '100 900',
+            style: 'normal',
+          },
+        ],
+      },
+    },
+    {
+      provider: fontProviders.local(),
+      name: 'IBM Plex Mono',
+      cssVariable: '--font-plex-mono',
+      fallbacks: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
+      options: {
+        variants: [
+          {
+            src: ['@fontsource/ibm-plex-mono/files/ibm-plex-mono-latin-400-normal.woff2'],
+            weight: '400',
+            style: 'normal',
+          },
+          {
+            src: ['@fontsource/ibm-plex-mono/files/ibm-plex-mono-latin-500-normal.woff2'],
+            weight: '500',
             style: 'normal',
           },
         ],

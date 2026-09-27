@@ -26,7 +26,7 @@ const facts = [
   <p class="eyebrow">Featured</p>
   <h2
     id="featured-title"
-    class="text-ink mt-5 text-[2rem] leading-[1.15] font-medium tracking-[-0.015em] sm:text-[2.5rem]"
+    class="text-ink mt-5 text-[2rem] leading-[1.15] font-medium sm:text-[2.5rem]"
   >
     {title}
   </h2>
@@ -38,7 +38,7 @@ const facts = [
   <dl class="mt-7 grid grid-cols-3 gap-4 sm:flex sm:gap-x-10">
     {facts.map((fact) => (
       <div class="flex flex-col gap-0.5 sm:max-w-[18ch]">
-        <dt class="text-muted font-sans text-[0.8125rem] leading-snug">{fact.label}</dt>
+        <dt class="text-muted font-secondary text-[0.8125rem] leading-snug">{fact.label}</dt>
         <dd class="text-ink order-first text-3xl tabular-nums">{fact.value}</dd>
       </div>
     ))}
@@ -59,7 +59,7 @@ const facts = [
         class="h-auto w-full rounded-lg"
       />
     </div>
-    <figcaption class="text-muted mt-3 font-sans text-[0.8125rem]">
+    <figcaption class="text-muted mt-3 font-secondary text-[0.8125rem]">
       The finished review in Slack, from a demo run with the fictional Acme company.
     </figcaption>
   </figure>

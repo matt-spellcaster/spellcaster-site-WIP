@@ -58,12 +58,12 @@ type Dialog =
   | { kind: 'approve'; button: Button };
 
 const PRIMARY =
-  'bg-accent text-canvas hover:bg-ink inline-flex min-h-11 items-center rounded-lg px-4 font-sans text-sm font-medium transition-colors disabled:opacity-60';
+  'bg-accent text-canvas hover:bg-ink inline-flex min-h-11 items-center rounded-lg px-4 font-secondary text-sm font-medium transition-colors disabled:opacity-60';
 const SECONDARY =
-  'border-line text-ink hover:bg-surface-2 inline-flex min-h-11 items-center rounded-lg border px-4 font-sans text-sm font-medium transition-colors';
+  'border-line text-ink hover:bg-surface-2 inline-flex min-h-11 items-center rounded-lg border px-4 font-secondary text-sm font-medium transition-colors';
 // A one-byte change: what it does, then where, stacked on a phone.
 const TAMPER =
-  'border-line text-ink hover:bg-surface-2 aria-pressed:border-revoke aria-pressed:bg-surface-2 flex min-h-11 w-full flex-col items-start gap-1 rounded-lg border px-4 py-2.5 text-left font-sans text-sm font-medium transition-colors sm:flex-row sm:items-center sm:justify-between';
+  'border-line text-ink hover:bg-surface-2 aria-pressed:border-revoke aria-pressed:bg-surface-2 flex min-h-11 w-full flex-col items-start gap-1 rounded-lg border px-4 py-2.5 text-left font-secondary text-sm font-medium transition-colors sm:flex-row sm:items-center sm:justify-between';
 const BOX = 'demo border-line bg-canvas my-8 rounded-2xl border p-4 sm:p-6';
 
 // --- dialogs ----------------------------------------------------------------------------
@@ -91,11 +91,11 @@ function Modal({
       ref={ref}
       onClose={onClose}
       aria-label={title}
-      className="bg-surface border-line text-ink backdrop:bg-canvas/80 m-auto w-[calc(100%-2rem)] max-w-md rounded-xl border p-0 font-sans"
+      className="bg-surface border-line text-ink backdrop:bg-canvas/80 m-auto w-[calc(100%-2rem)] max-w-md rounded-xl border p-0 font-secondary"
     >
       {open && (
         <div className="p-5">
-          <h4 className="text-ink text-base font-semibold">{title}</h4>
+          <h4 className="text-ink text-base font-medium">{title}</h4>
           {children}
         </div>
       )}
@@ -199,12 +199,12 @@ function ConfirmForm({
 /** A disclosure on phones, a side column on wide screens. */
 function Aws({ text, wide }: { text: string; wide: boolean }) {
   return wide ? (
-    <aside className="font-sans text-sm">
+    <aside className="font-secondary text-sm">
       <p className="eyebrow">{copy.aws}</p>
       <p className="text-muted mt-2 leading-relaxed">{text}</p>
     </aside>
   ) : (
-    <details className="border-line mb-4 rounded-lg border px-4 font-sans text-sm">
+    <details className="border-line mb-4 rounded-lg border px-4 font-secondary text-sm">
       <summary className="disclosure text-ink flex min-h-11 cursor-pointer items-center font-medium">
         {copy.aws}
       </summary>
@@ -258,7 +258,7 @@ class Boundary extends Component<{ children: ReactNode }, { failed: boolean }> {
   override render() {
     return this.state.failed ? (
       <div className={BOX}>
-        <p role="alert" className="text-ink/85 font-sans text-sm leading-relaxed">
+        <p role="alert" className="text-ink/85 font-secondary text-sm leading-relaxed">
           {copy.broken}
         </p>
       </div>
@@ -464,7 +464,7 @@ function Demo() {
         <h3
           ref={heading}
           tabIndex={-1}
-          className="text-ink mt-2 font-serif text-2xl font-medium outline-none"
+          className="text-ink mt-2 font-primary text-2xl font-medium outline-none"
         >
           {title}
         </h3>
@@ -488,9 +488,9 @@ function Demo() {
           {copy.title}
         </h3>
         <p className="text-ink/85 text-lg leading-relaxed">{copy.intro}</p>
-        <p className="text-muted mt-3 font-sans text-sm leading-relaxed">{copy.honest}</p>
+        <p className="text-muted mt-3 font-secondary text-sm leading-relaxed">{copy.honest}</p>
         {!live && (
-          <p className="text-muted mt-3 font-sans text-sm leading-relaxed">{copy.waiting}</p>
+          <p className="text-muted mt-3 font-secondary text-sm leading-relaxed">{copy.waiting}</p>
         )}
         <div className="mt-5 flex flex-wrap gap-3">
           <button type="button" className={PRIMARY} disabled={!live} onClick={() => go('open')}>
@@ -549,7 +549,7 @@ function Demo() {
         </div>
         <div
           ref={bar}
-          className="border-line bg-canvas sticky bottom-0 z-10 -mx-1 flex flex-wrap items-center gap-3 border-t px-1 py-3 font-sans text-sm"
+          className="border-line bg-canvas sticky bottom-0 z-10 -mx-1 flex flex-wrap items-center gap-3 border-t px-1 py-3 font-secondary text-sm"
         >
           <span className="text-ink font-medium">{copy.progress(count.decided, count.total)}</span>
           {left > 0 && (
@@ -643,13 +643,13 @@ function Demo() {
       s.body,
       s.aws,
       <>
-        <p className="text-muted font-sans text-sm leading-relaxed">{s.scope}</p>
+        <p className="text-muted font-secondary text-sm leading-relaxed">{s.scope}</p>
         <div className="flex flex-wrap gap-3">
           <button type="button" className={PRIMARY} onClick={() => void check(null)}>
             {checked?.change ? s.restore : s.run}
           </button>
         </div>
-        <fieldset className="font-sans text-sm">
+        <fieldset className="font-secondary text-sm">
           <legend className="text-ink font-medium">{s.change}</legend>
           <div className="mt-2 flex flex-col gap-2">
             {changes.map((c) => (
@@ -702,7 +702,7 @@ function Demo() {
   return (
     <div className={BOX}>
       {stage !== 'setup' && (
-        <div className="border-line mb-5 flex items-center justify-between gap-3 border-b pb-3 font-sans text-sm">
+        <div className="border-line mb-5 flex items-center justify-between gap-3 border-b pb-3 font-secondary text-sm">
           <span className="text-muted">{copy.title}</span>
           <button type="button" className={SECONDARY} onClick={startOver}>
             {copy.startOver}
@@ -711,7 +711,7 @@ function Demo() {
       )}
       {view}
       {error && (
-        <p role="alert" className="text-revoke mt-4 font-sans text-sm">
+        <p role="alert" className="text-revoke mt-4 font-secondary text-sm">
           {error}
         </p>
       )}

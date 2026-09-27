@@ -13,7 +13,7 @@ const { links } = Astro.props;
 <button
   type="button"
   popovertarget="site-menu"
-  class="menu-button text-ink hover:bg-surface-2 -mr-2 inline-flex min-h-11 items-center rounded-lg px-3 font-sans text-sm font-medium sm:hidden"
+  class="menu-button text-ink hover:bg-surface-2 -mr-2 inline-flex min-h-11 items-center rounded-lg px-3 font-secondary text-sm font-medium sm:hidden"
 >
   Menu
 </button>
@@ -29,7 +29,7 @@ const { links } = Astro.props;
         type="button"
         popovertarget="site-menu"
         popovertargetaction="hide"
-        class="text-ink hover:bg-surface-2 -mr-2 inline-flex min-h-11 items-center rounded-lg px-3 font-sans text-sm font-medium"
+        class="text-ink hover:bg-surface-2 -mr-2 inline-flex min-h-11 items-center rounded-lg px-3 font-secondary text-sm font-medium"
       >
         Close
       </button>
@@ -39,7 +39,7 @@ const { links } = Astro.props;
         <li>
           <a
             href={link.href}
-            class="text-ink hover:text-accent flex min-h-12 items-center font-sans text-lg font-medium"
+            class="text-ink hover:text-accent flex min-h-12 items-center font-secondary text-lg font-medium"
           >
             {link.label}
           </a>

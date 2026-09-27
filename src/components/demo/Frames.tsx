@@ -17,7 +17,7 @@ export function Frame({
   return (
     <section
       aria-label={`${badge}: ${title}`}
-      className="border-line bg-surface overflow-hidden rounded-xl border font-sans"
+      className="border-line bg-surface overflow-hidden rounded-xl border font-primary"
     >
       <div className="border-line flex flex-wrap items-center justify-between gap-2 border-b px-4 py-2.5">
         <span className="text-ink text-sm font-medium">{title}</span>
