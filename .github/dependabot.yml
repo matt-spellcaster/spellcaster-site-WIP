@@ -26,6 +26,12 @@ updates:
       # bumped by hand (a unit test checks they match).
       playwright:
         patterns: ['@playwright/test']
+      # Security fixes together too. One at a time, each pull request still fails the audit
+      # on the others, so none can pass alone. The cooldown doesn't apply to security
+      # updates, so check each release is at least 7 days old before merging (.npmrc).
+      security:
+        applies-to: security-updates
+        patterns: ['*']
 
   - package-ecosystem: github-actions
     directory: /
