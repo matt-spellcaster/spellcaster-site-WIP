@@ -28,7 +28,7 @@ updates:
         patterns: ['@playwright/test']
       # Security fixes together too. One at a time, each pull request still fails the audit
       # on the others, so none can pass alone. The cooldown doesn't apply to security
-      # updates, so check each release is at least 7 days old before merging (.npmrc).
+      # updates; Build's release-age check holds back a release under 7 days old instead.
       security:
         applies-to: security-updates
         patterns: ['*']
