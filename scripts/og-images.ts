@@ -9,22 +9,22 @@ import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 const font = (path: string) =>
   `url(data:font/woff2;base64,${readFileSync(`node_modules/${path}`).toString('base64')}) format('woff2')`;
 const inter = font('@fontsource-variable/inter/files/inter-latin-wght-normal.woff2');
-const newsreader = font('@fontsource-variable/newsreader/files/newsreader-latin-wght-normal.woff2');
+const plexMono = font('@fontsource/ibm-plex-mono/files/ibm-plex-mono-latin-500-normal.woff2');
 const shot = readFileSync('src/assets/okta/slack-review-finished.png');
 const favicon = readFileSync('public/favicon.svg', 'utf8');
 
-// The same look as the site (docs/design.md): warm black, Newsreader, the sky's wash and the
+// The same look as the site (docs/design.md): warm black, Inter, the sky's wash and the
 // thin-line horizon along the bottom.
 const base = `
-  @font-face { font-family: Newsreader; font-weight: 200 800; src: ${newsreader}; }
   @font-face { font-family: Inter; font-weight: 100 900; src: ${inter}; }
+  @font-face { font-family: 'IBM Plex Mono'; font-weight: 500; src: ${plexMono}; }
   * { margin: 0; box-sizing: border-box; }
   body { width: 1200px; height: 630px; overflow: hidden; background: #111010; color: #ecebe6;
-         font-family: Newsreader, Georgia, serif; -webkit-font-smoothing: antialiased; }
+         font-family: Inter, sans-serif; -webkit-font-smoothing: antialiased; }
   .sky { position: absolute; inset: 0; opacity: 0.6;
          background: radial-gradient(760px 420px at 50% 0, rgb(79 127 217 / 0.16), transparent 100%); }
   .horizon { position: absolute; left: 0; bottom: 0; width: 1200px; height: 300px; opacity: 0.6; }
-  .url { position: absolute; left: 80px; bottom: 64px; font-family: Inter, sans-serif; font-size: 24px; color: #b0ada5; }
+  .url { position: absolute; left: 80px; bottom: 64px; font-family: 'IBM Plex Mono', monospace; font-size: 24px; font-weight: 500; color: #b0ada5; }
   .mark { position: absolute; right: 80px; bottom: 56px; width: 44px; height: 44px; }`;
 
 // The limb of the planet, as in src/components/Horizon.astro: gradients, no filters.
@@ -67,11 +67,11 @@ const pages: Record<string, string> = {
     </style>
     <div class="sky"></div>${horizon}
     <h1>Matthew Spell</h1>
-    <p>Full stack IT. Here are some things I built.</p>
+    <p>Full stack IT.<br>Here are some things I built.</p>
     <div class="url">spellcaster.foo</div>${mark}`,
 
   'okta-access-review-aws': `<style>${base}
-      .label { position: absolute; left: 80px; top: 120px; font-family: Inter, sans-serif; font-size: 20px;
+      .label { position: absolute; left: 80px; top: 120px; font-family: 'IBM Plex Mono', monospace; font-size: 20px;
                font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: #b0ada5; }
       h1 { position: absolute; left: 80px; top: 160px; width: 560px; font-size: 64px; line-height: 1.12;
            font-weight: 500; letter-spacing: -0.015em; }

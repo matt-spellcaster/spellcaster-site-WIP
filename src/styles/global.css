@@ -6,10 +6,11 @@
    every surface, against the header glass with a white image behind it, and against the
    sky's wash behind the hero. */
 @theme {
-  /* Newsreader for what's read, Inter for the UI. Both are self-hosted through Astro's
-     Fonts API (astro.config.ts). */
-  --font-serif: var(--font-newsreader);
-  --font-sans: var(--font-inter);
+  /* Inter for what's read (primary), IBM Plex Mono for the UI and code (secondary). Both are
+     self-hosted through Astro's Fonts API (astro.config.ts). */
+  --font-primary: var(--font-inter);
+  --font-secondary: var(--font-plex-mono);
+  --font-mono: var(--font-plex-mono);
   /* The reading column: 48rem of text inside the page padding. */
   --container-page: 52rem;
 
@@ -30,9 +31,17 @@
   --color-decide: #e6b450;
 }
 
-/* Small uppercase section labels, in the UI face. */
+/* Inter wants a little less tracking at display sizes. */
+@layer base {
+  h1,
+  h2 {
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Small uppercase section labels, in the secondary face. */
 @utility eyebrow {
-  font-family: var(--font-sans);
+  font-family: var(--font-secondary);
   font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: 0.12em;

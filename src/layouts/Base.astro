@@ -61,14 +61,14 @@ const image = new URL(ogImage, Astro.site).href;
     <meta name="twitter:card" content="summary_large_image" />
 
     <!-- Both faces are on screen at once (the pitch and the nav), so both preload. -->
-    <Font cssVariable="--font-newsreader" preload />
     <Font cssVariable="--font-inter" preload />
+    <Font cssVariable="--font-plex-mono" preload />
     {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)}></script>}
   </head>
-  <body class="bg-canvas text-ink min-h-dvh font-serif antialiased">
+  <body class="bg-canvas text-ink min-h-dvh font-primary antialiased">
     <a
       href="#main"
-      class="bg-accent text-canvas fixed top-2 left-2 z-[60] -translate-y-20 rounded-lg px-4 py-3 font-sans text-sm font-medium focus:translate-y-0"
+      class="bg-accent text-canvas fixed top-2 left-2 z-[60] -translate-y-20 rounded-lg px-4 py-3 font-secondary text-sm font-medium focus:translate-y-0"
     >
       Skip to content
     </a>

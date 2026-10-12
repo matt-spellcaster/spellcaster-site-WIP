@@ -26,13 +26,11 @@ const { Content } = await render(project);
   ogImageAlt={`Case study: ${title}`}
   type="article"
 >
-  <article class="pt-24 pb-16 sm:pt-32">
+  <article class="pt-20 pb-16 sm:pt-32">
     <header id="summary" class="max-w-3xl">
       <p class="eyebrow">Case study</p>
-      <h1 class="text-ink mt-3 text-3xl leading-[1.15] font-medium tracking-[-0.015em] sm:text-5xl">
-        {title}
-      </h1>
-      <p class="text-ink/85 mt-4 text-lg leading-[1.55] sm:text-xl">{summary}</p>
+      <h1 class="text-ink mt-3 text-3xl leading-[1.15] font-medium sm:text-5xl">{title}</h1>
+      <p class="text-ink/85 mt-4 text-[1.0625rem] leading-[1.55] sm:text-xl">{summary}</p>
       <h2 class="sr-only">What this shows</h2>
       <ul class="mt-5 space-y-2.5">
         {shows.map((line) => (

@@ -4,14 +4,16 @@ Approved by Matthew at the M2 design gate on 2026-09-23 (Inter, cool dark, cards
 revised on 2026-09-24 to the "Editorial, with sky" direction from the session 4 design canvas:
 a serif reading page on a warm black, with a thin-line planetary horizon under the pitch. The
 mockup pages from the M2 gate were removed afterwards; `git log -- src/pages/mockup` has them.
+On 2026-09-27 Matthew replaced Newsreader: Inter became the primary face and IBM Plex Mono the
+secondary.
 
 ## Decisions
 
 | Decision | Choice |
 |---|---|
 | Theme | Dark only, on a warm black |
-| Reading face | **Newsreader** (variable weight, Latin subset: the 58 KB cut, not the 132 KB one with the optical-size axis), self-hosted through Astro's Fonts API from `@fontsource-variable/newsreader`. Headings, body text, the project names. |
-| UI face | **Inter** (variable, Latin subset), from `@fontsource-variable/inter`. The header and menu (except the name, which is the serif wordmark), nav, labels, small links, captions, facts' labels, tables, the footer. |
+| Primary face (`font-primary`) | **Inter** (variable, Latin subset), self-hosted through Astro's Fonts API from `@fontsource-variable/inter`. Headings, body text, the project names, the name in the header, and the demo's Slack and Jira mockups. `h1` and `h2` are tracked `-0.02em`. |
+| Secondary face (`font-secondary`, also `font-mono`) | **IBM Plex Mono** (Latin subset, weights 400 and 500 only: it has no variable cut), from `@fontsource/ibm-plex-mono`. The nav and menu, labels, small links, buttons, captions, facts' labels, tables, code, the footer. Buttons are 13px, a step under the text around them, so the case study's two fit on one row on a phone. Never bolder than 500, so no synthetic bold. |
 | Accent | **Blue `#8ab4f8`**: links in running text, the ledger's GitHub links, primary buttons |
 | Layout | One reading column, `--container-page` (52rem, 48rem of text). The home page reads top to bottom: pitch, the featured project as an article, the other projects as a ledger, About, Contact. |
 | Header glass | Tint **0.80** of the canvas, `saturate(160%) blur(16px)` |
@@ -48,10 +50,10 @@ composites both over the canvas.
 
 - The pitch is a 34px statement (28px on phones), the featured title 40px (32px on phones), the
   project names 20px, body text 19px to 20px (the featured paragraph 18px on phones, the ledger's
-  one-liners 17px), the About and Contact headings 22px; all Newsreader at weight 400 or 500,
+  one-liners 17px), the About and Contact headings 22px; all Inter at weight 400 or 500,
   never bolder, including `strong` in the case study.
-- Section labels ("Featured", "More projects", "Case study") are the `eyebrow` utility: Inter
-  12px, tracked, uppercase, `muted`.
+- Section labels ("Featured", "More projects", "Case study") are the `eyebrow` utility: IBM Plex
+  Mono 12px, tracked, uppercase, `muted`.
 - Text links (`TextLink.astro`) are underlined, in `ink` with the underline at 40%, and turn
   `accent` on hover; the Contact email is one. Links in running text are `accent` and
   underlined. Buttons (`LinkButton.astro`) stay for the case study and the 404 page.

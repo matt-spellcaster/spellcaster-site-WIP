@@ -1,5 +1,5 @@
 /* The case study body (MDX). Hand-written rather than a typography plugin: it's one page.
-   It reads in Newsreader, like the home page; tables and code are in the UI faces.
+   It reads in Inter, like the home page; tables and code are in IBM Plex Mono.
    The demo (.demo) draws its own lists, bold, code and terminal, so the rules that reach
    below the top level stop at it. */
 .case-study > h2 {
@@ -7,7 +7,7 @@
   font-size: 1.75rem;
   line-height: 1.2;
   font-weight: 500;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
   color: var(--color-ink);
 }
 .case-study > p,
@@ -40,7 +40,7 @@
   text-underline-offset: 4px;
 }
 .case-study :not(pre) > code:not(.demo *) {
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-family: var(--font-mono);
   font-size: 0.875em;
   padding: 0.1em 0.35em;
   border-radius: 0.3rem;
@@ -50,7 +50,7 @@
   margin-top: 1.25rem;
   width: 100%;
   border-collapse: collapse;
-  font-family: var(--font-sans);
+  font-family: var(--font-secondary);
   font-size: 0.875rem;
   line-height: 1.55;
 }
@@ -73,7 +73,7 @@
   border: 1px solid var(--color-line);
   border-radius: 0.75rem;
   background: var(--color-surface);
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-family: var(--font-mono);
   font-size: 0.8125rem;
   line-height: 1.7;
   white-space: pre-wrap;
@@ -114,7 +114,7 @@
   align-items: center;
   min-height: 2.75rem;
   cursor: pointer;
-  font-family: var(--font-sans);
+  font-family: var(--font-secondary);
   font-size: 0.875rem;
   font-weight: 500;
   color: var(--color-ink);
