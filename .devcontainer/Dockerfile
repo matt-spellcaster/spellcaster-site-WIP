@@ -3,7 +3,7 @@
 # malicious dependency can't reach cloud or GitHub sessions.
 # The tag's Node version equals .node-version, which CI uses (a unit test checks). Dependabot
 # bumps the tag and digest; bump .node-version in the same pull request.
-FROM node:24.21.0-bookworm-slim@sha256:0e0ff40c39bc087845bfb27465a0df4ea419520094bc35842ff83dd8cbe6f9b6
+FROM node:24.21.0-bookworm-slim@sha256:d6aa754f16b3197301076f047b5def2f02ea1dbbc2ca920407d46d7ec7f87b20
 
 # Must equal @playwright/test in package.json (a unit test checks).
 ARG PLAYWRIGHT_VERSION=1.63.0
